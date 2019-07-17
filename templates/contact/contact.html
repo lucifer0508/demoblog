@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Contact us</title>
+    <style>
+        #nav1{
+            width: 40%;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <div class="container" id="nav1">
+<h2>Contact Us</h2>
+    {% load crispy_forms_tags %}
+<form method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <input type="submit" value="Submit" />
+</form>
+    </div>
+
+{% endblock %}

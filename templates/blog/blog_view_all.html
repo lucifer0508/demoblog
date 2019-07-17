@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Blog Data</title>
+        <style>
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<br><br>
+  {% for x in result %}
+      <br>
+      <h2 style="font-family: 'Monoton', cursive;"><b>{{ x.title.upper }}</b></h2>
+        <small>{{ x.date_updated }}</small>
+      <br><br>
+<div style="text-align: justify">{{ x.body }}</div>
+      <br>
+  {% endfor %}
+
+
+</div>
+
+{% endblock %}

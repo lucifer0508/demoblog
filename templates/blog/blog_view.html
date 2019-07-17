@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Blog Data</title>
+        <style>
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+        </style>
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<div class="container">
+  {% for x in result %}
+      <br><br>
+      {% if x.email == user.email %}
+      <br>
+      <h2 style="font-family: 'Monoton', cursive;"><b>{{ x.title.upper }}</b></h2>
+        <small>{{ x.date_updated }}</small>
+      <br><br>
+<div style="text-align: justify">{{ x.body }}</div>
+      <br>
+
+      <a href="{% url 'blogedit' x.id %}" class="btn btn-warning">Edit</a>
+      {% endif %}
+  {% endfor %}
+
+
+</div>
+{% else %}<br><br><br>
+    <a href="{% url 'login' %}" style="margin-left: 100px">Please sign in...</a>
+    {% endif %}
+{% endblock %}

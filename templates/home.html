@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>SimpleBlog</title>
+{% endblock %}
+
+{% block body %}
+<br><br><br>
+<center><h2><b>Welcome
+    {% if user.is_authenticated %}
+        {{ user.first_name.upper }}
+    {% else %}
+        GUEST
+{% endif %}!</b></h2></center>
+
+    <center>
+        <div class="col-6">
+            <b>This is a Simple Blog website</b>
+        </div></center>
+
+{% endblock %}

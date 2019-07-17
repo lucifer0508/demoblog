@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Insert Blog</title>
+    <style>
+        #nav1{
+            width: 40%;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div class="container" id="nav1">
+    <br><br><br>
+<center><h2>Post Blog</h2></center>
+        <br>
+    <div class="row justify-content-center">
+        {% load crispy_forms_tags %}
+        <div class="col-6">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="title" style="padding-left: 5px" class="form-control" placeholder="Title"> <br>
+                <textarea class="form-control" rows="6" style="padding-left: 5px" placeholder="Body" name="body"></textarea> <br>
+                <center><button class="btn btn-outline-primary" style="margin-top: 25px">Post Blog</button></center>
+                </form>
+        </div>
+    </div>
+</div>
+        {% else %}<br><br><br>
+        <a href="{% url 'login' %}" style="margin-left: 100px">Please sign in...</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Edit Data</title>
+    <style>
+        #nav1{
+            width: 40%;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container" id="nav1">
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <br>
+                <form action="{% url 'blogupdate' result.id %}" method="post">
+                    {% csrf_token %}
+                    <br><br>
+                    <center><h2>Edit Data</h2></center>
+                    <br>
+                    <input type="text" name="title" class="form-control" placeholder="Title" value="{{ result.title }}"><br>
+                    <textarea type="text" rows="6" name="body" class="form-control" placeholder="Body">{{ result.body }}</textarea><br>
+                    <center><button class="btn btn-outline-primary">Edit Data</button></center>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
